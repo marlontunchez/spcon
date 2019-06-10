@@ -1,7 +1,6 @@
 let rusuario=require("./rusuario.js")
-module.exports= rusuario
-
-
 let rlogin=require("./rlogin.js")
-module.exports= rlogin
+//module.exports= rusuario
+module.exports= rlogin;
+
 
