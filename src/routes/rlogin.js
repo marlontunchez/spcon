@@ -1,20 +1,8 @@
-let router = require("express").Router();
-let config = require("../config/config.js");
-let mysql = require("mysql");
-let jwt = require("jsonwebtoken");
-router.post("/login",(req,res)=>{
-const {usuario,contraseña} = req.body;
-let sql="call flogin('"+usuario+"','"+contraseña+"')";
-let connection = mysql.createConnection(config);
-connection.query(sql,true,(error,results,fields)=>{
-if (error){
-  res.send(error.message);
-}
-let token=     jwt.sign("hhhhhhhhhhhhhh","secret");
-res.send(token)
-console.log(usuario,contraseña);
-});
-connection.end();
-});
-
-module.exports=router;
+var express = require('express');
+ var logincontroller = require('../Controllers/LoginController.js');
+ // Llamamos al router
+var app = express.Router();
+ // Creamos una ruta de tipo GET para el método de pruebas
+app.post('/login', logincontroller.login);
+ // Exportamos la configuración
+module.exports = app;
