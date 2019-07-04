@@ -19,19 +19,7 @@ function eliminar(req, res){
 } 
 function crear(req, res){
     const {nombre,apellido,usuario,estado,contra} = req.body;
-    if( !nombre ) {
 
-      res.status(400).send({message:"El campo nombre es obligatorio"});
-      return;
-  }
-  if( !usuario ) {
-    res.status(400).send({message:"El campo usuario es obligatorio"});
-    return;
-}
-if( !contra ) {
-  res.status(400).send({message:"El campo contraseña es obligatorio"});
-  return;
-}
     let connection=mysql.createConnection(config)
     let sql="CALL IUSUARIO('"+nombre+"','"+apellido+"','"+usuario+"','"+estado+"','"+contra+"')";
     connection.query(sql,true,(error,results,fields)=>{
