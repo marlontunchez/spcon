@@ -11,7 +11,7 @@ app.use(morgan("dev"));
 app.use('/api', rusuario);
 app.use('/api', rlogin);
 
-app.listen(port,()=>{
-console.log("El servidor esta corriendo en el puerto: "+port);
+app.listen(process.env.PORT,()=>{
+console.log("El servidor esta corriendo en el puerto: "+process.env.PORT);
 });
 module.exports = app;
